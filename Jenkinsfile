@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Build'){
       steps {
+	    bat "javac -version"
 		bat "javac Student.java"
         bat "javac -cp .; 'C:\\Program Files\\junit4.10\\junit-4.10.jar' studentTest.java"
       }
