@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Build'){
       steps {
-		sh "javac Student.java"
-        sh "javac -cp .;'C:\\Program Files\\junit4.10\\junit-4.10.jar' studentTest.java"
+		bat "javac Student.java"
+        bat 'javac -cp .;"C:\\Program Files\\junit4.10\\junit-4.10.jar" studentTest.java'
       }
     }
     stage('Test') {
       steps { 
-        sh "java -cp .;'C:\\Program Files\\junit4.10\\junit-4.10.jar' org.junit.runner.JUnitCore studentTest" 
+        bat "java -cp .;'C:\\Program Files\\junit4.10\\junit-4.10.jar' org.junit.runner.JUnitCore studentTest" 
       }
     }
   }
