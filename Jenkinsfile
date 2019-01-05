@@ -1,14 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('myStage'){
+    stage('Build'){
       steps {
-        bat 'dir' 
+		sh "javac Student.java"
+        sh "javac -cp .;'C:\\Program Files\\junit4.10\\junit-4.10.jar' studentTest.java"
       }
     }
-    stage('Build') {
+    stage('Test') {
       steps { 
-        bat 'dir' 
+        sh "java -cp .;'C:\\Program Files\\junit4.10\\junit-4.10.jar' org.junit.runner.JUnitCore studentTest" 
       }
     }
   }
