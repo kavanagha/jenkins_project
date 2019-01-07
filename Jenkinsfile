@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+	stage ('Fetch'){
+		steps{
+			bat "git fetch origin"
+		}
+	}
     stage('Build'){
       steps {
 	    bat "javac -version"
